@@ -5,16 +5,20 @@ import com.thoughtworks.dao.PromotionDao;
 import com.thoughtworks.entity.Item;
 import com.thoughtworks.entity.Promotion;
 import com.thoughtworks.entity.PromotionFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@Repository
 public class ItemDaoImpl implements ItemDao {
+
+    @Autowired
+    private PromotionDao promotionDaoImpl;
     private JdbcTemplate jdbcTemplate;
 
     public ItemDaoImpl(JdbcTemplate jdbcTemplate) {
@@ -40,9 +44,6 @@ public class ItemDaoImpl implements ItemDao {
         return jdbcTemplate.query(sql, new Object[]{barcode}, new RowMapper<Promotion>() {
             @Override
             public Promotion mapRow(ResultSet rs, int rowNum) throws SQLException {
-
-                ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-config.xml");
-                PromotionDao promotionDaoImpl = (PromotionDao) applicationContext.getBean("promotionDaoImpl");
 
                 int promotionId = rs.getInt("promotionid");
                 Promotion promotionForType = promotionDaoImpl.getPromotion(promotionId);

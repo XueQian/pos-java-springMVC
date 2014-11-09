@@ -5,6 +5,7 @@ import com.thoughtworks.entity.Promotion;
 import com.thoughtworks.entity.PromotionFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Repository
 public class PromotionDaoImpl implements PromotionDao {
 
     private JdbcTemplate jdbcTemplate;

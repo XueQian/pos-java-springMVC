@@ -4,9 +4,11 @@ import com.thoughtworks.dao.ItemDao;
 import com.thoughtworks.dao.PromotionDao;
 import com.thoughtworks.entity.Promotion;
 import com.thoughtworks.service.PromotionService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PromotionServiceImpl implements PromotionService {
 
     private PromotionDao promotionDaoImpl;

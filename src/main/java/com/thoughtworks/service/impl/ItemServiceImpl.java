@@ -4,7 +4,9 @@ import com.thoughtworks.dao.ItemDao;
 import com.thoughtworks.entity.Item;
 import com.thoughtworks.service.ItemService;
 import com.thoughtworks.service.PromotionService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ItemServiceImpl implements ItemService {
 
     private PromotionService promotionService;

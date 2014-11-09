@@ -17,7 +17,7 @@
         <property name="dataSource" ref="datasource"/>
     </bean>
 
-    <bean id="itemDaoImpl" class="com.thoughtworks.iamcoach.pos.dao.impl.ItemDaoImpl">
+    <bean id="itemDaoImpl" class="com.thoughtworks.dao.impl.ItemDaoImpl">
         <constructor-arg name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
