@@ -1,4 +1,4 @@
-package com.thoughtworks.mvc;
+package com.thoughtworks.controller;
 
 import org.junit.Before;
 import org.junit.Test;
