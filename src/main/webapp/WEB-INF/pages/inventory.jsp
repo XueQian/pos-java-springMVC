@@ -2,13 +2,17 @@
 <%@ page import="com.thoughtworks.entity.CartItem" %>
 <%@ page import="com.thoughtworks.util.DataTransfer" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Set" %>
 <html>
 <body>
 <h1>let us go</h1>
-<%=new Date()%>
+<%SimpleDateFormat s = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
+    Date date = new Date();
+%>
+<%=s.format(date)%>
 <%
     Set<String> categories = (Set<String>) request.getAttribute("cartCategories");
     for (String category : categories) {
