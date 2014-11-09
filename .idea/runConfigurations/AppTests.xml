@@ -4,8 +4,8 @@
     <module name="pos-java-springMVC" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
     <option name="ALTERNATIVE_JRE_PATH" value="" />
-    <option name="PACKAGE_NAME" value="com.thougthworks.mvc" />
-    <option name="MAIN_CLASS_NAME" value="com.thougthworks.mvc.AppTests" />
+    <option name="PACKAGE_NAME" value="com.thoughtworks.mvc" />
+    <option name="MAIN_CLASS_NAME" value="com.thoughtworks.mvc.AppTests" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="class" />
     <option name="VM_PARAMETERS" value="-ea" />
