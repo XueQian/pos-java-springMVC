@@ -1,10 +1,15 @@
 package com.thoughtworks.entity;
 
 import com.thoughtworks.service.ItemService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+
+@Component
 public class Scanner {
+    @Autowired
     private ItemService itemServiceImpl;
 
     public Scanner(ItemService itemServiceImpl) {

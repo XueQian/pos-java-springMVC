@@ -17,13 +17,15 @@ import java.util.List;
 @Repository
 public class ItemDaoImpl implements ItemDao {
 
+    public ItemDaoImpl() {
+
+    }
+
     @Autowired
     private PromotionDao promotionDaoImpl;
-    private JdbcTemplate jdbcTemplate;
 
-    public ItemDaoImpl(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public Item getItem(String barcode) {

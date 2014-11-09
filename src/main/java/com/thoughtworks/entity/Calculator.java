@@ -1,12 +1,13 @@
 package com.thoughtworks.entity;
 
 import com.thoughtworks.util.DataTransfer;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
+@Component
 public class Calculator {
     public static double getSubtotal(CartItem cartItem) {
         List<Double> promotionMoney = new ArrayList<Double>();

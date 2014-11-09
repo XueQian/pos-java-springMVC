@@ -4,6 +4,7 @@ import com.thoughtworks.dao.ItemDao;
 import com.thoughtworks.dao.PromotionDao;
 import com.thoughtworks.entity.Promotion;
 import com.thoughtworks.service.PromotionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +12,13 @@ import java.util.List;
 @Service
 public class PromotionServiceImpl implements PromotionService {
 
+    public PromotionServiceImpl() {
+
+    }
+
+    @Autowired
     private PromotionDao promotionDaoImpl;
+    @Autowired
     private ItemDao itemDaoImpl;
 
     public PromotionServiceImpl(PromotionDao promotionDaoImpl, ItemDao itemDaoImpl) {

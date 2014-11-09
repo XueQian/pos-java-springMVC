@@ -3,6 +3,7 @@ package com.thoughtworks.dao.impl;
 import com.thoughtworks.dao.PromotionDao;
 import com.thoughtworks.entity.Promotion;
 import com.thoughtworks.entity.PromotionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -16,11 +17,11 @@ import java.util.Set;
 @Repository
 public class PromotionDaoImpl implements PromotionDao {
 
-    private JdbcTemplate jdbcTemplate;
+    public PromotionDaoImpl(){
 
-    public PromotionDaoImpl(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
     }
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public Promotion getPromotion(int id) {
