@@ -1,11 +1,14 @@
+<%@ page import="com.thoughtworks.entity.Calculator" %>
+<%@ page import="com.thoughtworks.entity.CartItem" %>
+<%@ page import="com.thoughtworks.util.DataTransfer" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.Date" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Set" %>
-<%@ page import="com.thoughtworks.entity.CartItem" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.thoughtworks.entity.Calculator" %>
 <html>
 <body>
 <h1>let us go</h1>
+<%=new Date()%>
 <%
     Set<String> categories = (Set<String>) request.getAttribute("cartCategories");
     for (String category : categories) {
@@ -13,13 +16,12 @@
 %>
 <h2>${category}</h2>
 
-
 <%
     List<CartItem> cartItems = (List<CartItem>) request.getAttribute("cartItems");
     for (CartItem cartItem : cartItems) {
         request.setAttribute("cartItem", cartItem);
         if (category.equals(cartItem.getItem().getCategory())) {
-            double subtotal = Calculator.getSubtotal(cartItem);
+            double subtotal = DataTransfer.transfer(Calculator.getSubtotal(cartItem));
             request.setAttribute("subtotal", subtotal);
 
 %>
@@ -41,15 +43,12 @@
 
 %>
 
-
-
 <%
     }
 
     request.removeAttribute("category");
 %>
 <h1>${totalMoney}|${promotionMoney}|${totalSavedMoney}</h1>
-
 
 </body>
 </html>
