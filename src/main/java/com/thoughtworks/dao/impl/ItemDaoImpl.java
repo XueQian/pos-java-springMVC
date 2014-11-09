@@ -20,25 +20,6 @@ public class ItemDaoImpl implements ItemDao {
     public ItemDaoImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-// getItem　spring　另一种实现方法
-//    @Override
-//    public Item getItem(final String barcode) {
-//
-//        final Item item = new Item();
-//        jdbcTemplate.query("select * from items i,categories c where  i.i_categoryid = c.c_id and i_barcode = ?",
-//                new Object[]{barcode},
-//                new RowCallbackHandler() {
-//                    public void processRow(ResultSet rs) throws SQLException {
-//                        item.setId(rs.getInt("i_id"));
-//                        item.setBarcode(barcode);
-//                        item.setName(rs.getString("i_name"));
-//                        item.setUnit(rs.getString("i_unit"));
-//                        item.setPrice(rs.getDouble("i_price"));
-//                        item.setCategory(rs.getString("c_name"));
-//                    }
-//                });
-//        return item;
-//    }
 
     @Override
     public Item getItem(String barcode) {
@@ -75,32 +56,6 @@ public class ItemDaoImpl implements ItemDao {
             }
         });
     }
-// getItemPromotions　spring　另一种实现方法
-//    @Override
-//    public List<Promotion> getItemPromotions(String barcode) {
-//
-//        final List<Promotion> itemPromotions = new ArrayList<Promotion>();
-//
-//        jdbcTemplate.query("select * from items i,items_promotions ip where i.i_id=ip.itemid  and i_barcode = ?",
-//                new Object[]{barcode},
-//                new RowCallbackHandler() {
-//                    public void processRow(ResultSet rs) throws SQLException {
-//                        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-config.xml");
-//                        PromotionDao promotionDaoImpl = (PromotionDao) applicationContext.getBean("promotionDaoImpl");
-//
-//                        int promotionId = rs.getInt("promotionid");
-//                        Promotion promotionForType = promotionDaoImpl.getPromotion(promotionId);
-//
-//                        Promotion promotion = PromotionFactory.getPromotionByType(promotionForType.getType());
-//                        promotion.setId(promotionForType.getId());
-//                        promotion.setType(promotionForType.getType());
-//                        promotion.setDescription(promotionForType.getDescription());
-//                        promotion.setDiscount(rs.getDouble("discount"));
-//                        itemPromotions.add(promotion);
-//                    }
-//                });
-//        return itemPromotions;
-//    }
 
 }
 

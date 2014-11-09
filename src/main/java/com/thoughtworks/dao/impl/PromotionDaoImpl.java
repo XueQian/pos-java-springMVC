@@ -19,25 +19,6 @@ public class PromotionDaoImpl implements PromotionDao {
     public PromotionDaoImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-// getPromotion　spring　另一种实现方法
-//   @Override
-//    public Promotion getPromotion(int id) {
-//
-//        final Promotion[] promotion = new Promotion[1];
-//
-//        jdbcTemplate.query("SELECT * FROM promotions WHERE p_id = ?",
-//                new Object[]{id},
-//                new RowCallbackHandler() {
-//                    public void processRow(ResultSet rs) throws SQLException {
-//                        int type = rs.getInt("p_type");
-//                        promotion[0] = PromotionFactory.getPromotionByType(type);
-//                        promotion[0].setId(rs.getInt("p_id"));
-//                        promotion[0].setDescription(rs.getString("p_description"));
-//                        promotion[0].setType(type);
-//                    }
-//                });
-//        return promotion[0];
-//    }
 
     @Override
     public Promotion getPromotion(int id) {
@@ -70,17 +51,5 @@ public class PromotionDaoImpl implements PromotionDao {
         promotionBarcodes.addAll(promotionBarcodeList);
         return promotionBarcodes;
     }
-// getPromotionBarcode　spring　另一种实现方法
-//    @Override
-//    public Set<String> getPromotionBarcodes() {
-//        final Set<String> promotionBarcodes = new HashSet<String>();
-//
-//        jdbcTemplate.query("select * from items i, items_promotions ip where i.i_id = ip.itemid ",
-//                new RowCallbackHandler() {
-//                    public void processRow(ResultSet rs) throws SQLException {
-//                        promotionBarcodes.add(rs.getString("i_barcode"));
-//                    }
-//                });
-//        return promotionBarcodes;
-//    }
+
 }
