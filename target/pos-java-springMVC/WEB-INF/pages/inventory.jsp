@@ -26,7 +26,7 @@
 
 %>
 
-<h1>${cartItem.item.name}|${cartItem.count}|${cartItem.item.price}|${cartItem.item.unit}|${subtotal}</h1>
+<h3>${cartItem.item.name}|${cartItem.count}|${cartItem.item.price}|${cartItem.item.unit}|${subtotal}</h3>
 
 <%
         }
@@ -48,7 +48,7 @@
 
     request.removeAttribute("category");
 %>
-<h1>${totalMoney}|${promotionMoney}|${totalSavedMoney}</h1>
+<h3>${totalMoney}|${promotionMoney}|${totalSavedMoney}</h3>
 
 </body>
 </html>
